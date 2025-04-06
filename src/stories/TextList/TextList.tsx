@@ -17,10 +17,11 @@ export interface TextListProps {
     link?: LinkRendererProps;
     text: string;
   }[];
-  tag?: 'ul' | 'ol';
+  tag: 'ul' | 'ol';
 }
 
-const TextList: React.FC<TextListProps> = ({ tag = 'ul', items }) => {
+const TextList: React.FC<TextListProps> = (props) => {
+  const { items, tag } = props;
   const Tag = tag;
   return (
     <Tag className={styles.parentContainer}>
@@ -45,12 +46,12 @@ const TextList: React.FC<TextListProps> = ({ tag = 'ul', items }) => {
               {parent.items.map((child, childIndex) => (
                 <li key={childIndex}>
                   {child.link ? (
-                    <a href={child.link.href} target={child.link.target} rel={child.link.rel}>
+                    <a className={styles.parent} href={child.link.href} target={child.link.target} rel={child.link.rel}>
                       <div className={clsx(styles.text)}>
                         {tag === 'ol' && (
                           <span className={styles.underlineNone['child']}>{String(parentIndex + 1) + '-' + String(childIndex + 1) + '.'}</span>
                         )}
-                        <span className={clsx(tag === 'ul' && styles.listStyle['circle'], tag === 'ul' && styles.underline)}>{child.text}</span>
+                        <span className={(tag === 'ul' && styles.listStyle['decimal'], styles.child)}>{child.text}</span>
                       </div>
                     </a>
                   ) : (
@@ -67,16 +68,14 @@ const TextList: React.FC<TextListProps> = ({ tag = 'ul', items }) => {
                       {child.items.map((grandChild, grandChildIndex) => (
                         <li key={grandChildIndex}>
                           {grandChild.link ? (
-                            <a href={grandChild.link.href} target={grandChild.link.target} rel={grandChild.link.rel}>
-                              <div className={clsx(styles.underline, styles.text)}>
+                            <a className={styles.parent} href={grandChild.link.href} target={grandChild.link.target} rel={grandChild.link.rel}>
+                              <div className={clsx(styles.text)}>
                                 {tag === 'ol' && (
-                                  <span className={styles.underlineNone['grandChild']}>
+                                  <span className={clsx(styles.underlineNone['grandChild'])}>
                                     {String(parentIndex + 1) + '-' + String(childIndex + 1) + '-' + String(grandChildIndex + 1) + '.'}
                                   </span>
                                 )}
-                                <span className={clsx(tag === 'ul' && styles.listStyle['square'], tag === 'ul' && styles.underline)}>
-                                  {grandChild.text}
-                                </span>
+                                <span className={clsx(tag === 'ul' && styles.listStyle['square'], styles.child)}>{grandChild.text}</span>
                               </div>
                             </a>
                           ) : (
