@@ -6,6 +6,7 @@ export const parentContainer = style({
   boxSizing: 'border-box',
   gap: '8px',
   lineHeight: '1.6',
+  listStyle: 'none',
 });
 
 export const childContainer = style({
@@ -14,6 +15,7 @@ export const childContainer = style({
   gap: '4px',
   paddingTop: '4px',
   paddingLeft: '24px',
+  listStyle: 'none',
 });
 
 export const grandChildContainer = style({
@@ -22,10 +24,12 @@ export const grandChildContainer = style({
   gap: '4px',
   paddingTop: '4px',
   paddingLeft: '48px',
+  listStyle: 'none',
 });
 
 export const parentListContainer = style({
   paddingBottom: '4px',
+  listStyle: 'none',
 });
 
 // リストマーカー（ul）
@@ -110,14 +114,14 @@ export const text = style({
   },
 });
 
-export const underline = style({
-  display: 'flex',
-  ':hover': {
-    textDecoration: 'underline',
-  },
-});
+// export const underline = style({
+//   display: 'flex',
+//   ':hover': {
+//     textDecoration: 'underline',
+//   },
+// });
 
-export const parent = style({});
+export const parent = style({ textDecorationLine: 'none' });
 
 export const child = style({
   selectors: {
@@ -131,23 +135,23 @@ export const child = style({
 export const underlineNone = styleVariants({
   parent: {
     marginRight: '4px',
-    textDecoration: 'none !important',
-    ':hover': {
-      textDecoration: 'none !important',
-    },
+    // textDecoration: 'none !important',
+    // ':hover': {
+    //   textDecoration: 'none !important',
+    // },
   },
   child: {
     marginRight: '4px',
     minWidth: '31.52px',
-    textDecoration: 'none !important',
-    ':hover': {
-      textDecoration: 'none !important',
-    },
+    // textDecoration: 'none !important',
+    // ':hover': {
+    //   textDecoration: 'none !important',
+    // },
   },
   grandChild: {
     marginRight: '4px',
     minWidth: '48.25px',
-    textDecoration: 'none !important',
+    // textDecoration: 'none !important',
   },
 });
 
@@ -156,15 +160,16 @@ export const marginRight = styleVariants({
   parent: {
     display: 'inline-block',
     marginRight: '4px',
+    whiteSpace: 'nowrap',
   },
   child: {
     display: 'block',
     marginRight: '4px',
-    // minWidth: '31.52px',
+    whiteSpace: 'nowrap',
   },
   grandChild: {
     display: 'block',
     marginRight: '4px',
-    // minWidth: '48.25px',
+    whiteSpace: 'nowrap',
   },
 });

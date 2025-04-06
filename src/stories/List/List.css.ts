@@ -18,3 +18,13 @@ export const li = style({
     },
   },
 });
+
+export const liContainer = style({
+  marginBottom: '4px',
+  selectors: {
+    '&:hover': {
+      color: '#0070f3',
+      textDecoration: 'underline',
+    },
+  },
+});
