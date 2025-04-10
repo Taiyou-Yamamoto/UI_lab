@@ -1,5 +1,16 @@
 # フロントエンド用の作業場　
 CSS, React, Typescript, Vitestなど
+
+# 今後やりたいこと
+
+ - 簡単なsnippetを自作できるようになる
+ - github Actionsで自動化
+
+# 苦戦していること
+- vitestの設定
+# やったこと
+ - copilotでの自動レビュー
+   
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
